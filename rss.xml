@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 13 Mar 2022 00:16:38 GMT</lastBuildDate><item><title><![CDATA[10.Github Pagesでデプロイとアナリティクスとサイトマップ (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 13 Mar 2022 00:29:22 GMT</lastBuildDate><item><title><![CDATA[10.Github Pagesでデプロイとアナリティクスとサイトマップ (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
 gatsbyのバージョンは 4.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log10/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log10/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
@@ -128,6 +128,9 @@ gatsbyのバージョンは 4.…]]></description><link>https://ryota2357.com/bl
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;サーチコンソールとアナリティクスの連携もしておいた。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;https://ryota2357.com/sitemap.xml&lt;/code&gt;にサイトマップが出力されるかと思いきや、&lt;code&gt;https://ryota2357.com/sitemap/sitemap-index.xml&lt;/code&gt;に出力されるみたい。&lt;br&gt;
+&lt;code&gt;/sitemap.xml&lt;/code&gt;にサイトマップがなくてびっくりした。&lt;/p&gt;
+&lt;p&gt;参考 : &lt;a href=&quot;https://takagi.blog/diff-v3-and-v4-of-gatsby-plugin-sitemap/&quot;&gt;【Gatsby ブログ】gatsby-plugin-sitemap が 3 系から 4 系で仕様が変わっていた&lt;/a&gt;&lt;/p&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;
