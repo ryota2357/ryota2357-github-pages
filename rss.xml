@@ -1,4 +1,239 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 12 Mar 2022 05:35:15 GMT</lastBuildDate><item><title><![CDATA[gatsby-remark-vscodeにハイライト可能な言語を追加する]]></title><description><![CDATA[公式 docsに書いてあったのですが、少しわかりにくかったので。 非常に簡単に追加できました。 例として.txtと.dartを追加してみます。 対応してる言語 gatsby-remark-vscode は 55 の言語のハイライトに対応してます。(2021/3/1…]]></description><link>https://ryota2357.com/blog/2022/gatsby-hilight-vscode-add/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-hilight-vscode-add/</guid><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.com/plugins/gatsby-remark-vscode/&quot;&gt;公式 docs&lt;/a&gt;に書いてあったのですが、少しわかりにくかったので。&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 13 Mar 2022 00:16:38 GMT</lastBuildDate><item><title><![CDATA[10.Github Pagesでデプロイとアナリティクスとサイトマップ (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
+gatsbyのバージョンは 4.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log10/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log10/</guid><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
+実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
+&lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;デプロイする。&lt;/p&gt;
+&lt;h2 id=&quot;コマンドの用意&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E7%94%A8%E6%84%8F&quot; aria-label=&quot;コマンドの用意 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;コマンドの用意&lt;/h2&gt;
+&lt;p&gt;デプロイするコマンドを作る。&lt;/p&gt;
+&lt;h3 id=&quot;gh-pages&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gh-pages&quot; aria-label=&quot;gh pages permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;gh-pages&lt;/h3&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ npm i gh-pages --save-dev&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;で導入。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--save-dev&lt;/code&gt;オプションによって&lt;code&gt;package.json&lt;/code&gt;の&lt;code&gt;dependencie&lt;/code&gt;ではなく、&lt;code&gt;devDependencie&lt;/code&gt;に記述される。&lt;/p&gt;
+&lt;h3 id=&quot;npm-run-deploy&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#npm-run-deploy&quot; aria-label=&quot;npm run deploy permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;npm run deploy&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;package.json&lt;/code&gt;の&lt;code&gt;scripts&lt;/code&gt;プロパティに以下を追加する。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;json&quot; data-index=&quot;1&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;scripts&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;&amp;quot;deploy&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;gatsby build &amp;amp;&amp;amp; gh-pages -d public&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;git-と-github&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#git-%E3%81%A8-github&quot; aria-label=&quot;git と github permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Git と Github&lt;/h2&gt;
+&lt;h3 id=&quot;リポジトリを作る&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B&quot; aria-label=&quot;リポジトリを作る permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;リポジトリを作る&lt;/h3&gt;
+&lt;p&gt;private だと GithubPages は有料なので、public でなリポジトリで作る。&lt;br&gt;
+リポジトリ名は&lt;code&gt;ryota2357-github-pages&lt;/code&gt;にしました。&lt;/p&gt;
+&lt;p&gt;開発で git にコミットしてたけど、かなりコミットログが汚いので削除して、init から。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ git init&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ git add &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ git commit -m &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;first comm&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ git branch -M main&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ git remote add origin https://github.com/ryota2357/ryota2357-github-pages.git&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ git push -u origin main&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;デプロイ&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4&quot; aria-label=&quot;デプロイ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;デプロイ&lt;/h3&gt;
+&lt;p&gt;さっきコマンドを作ったから簡単にできる。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;3&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ npm run deploy&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;https://ryota2357.github.io/ryota2357-github-pages&lt;/code&gt;にデプロイできた。&lt;/p&gt;
+&lt;h2 id=&quot;独自ドメインの設定&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E7%8B%AC%E8%87%AA%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%81%AE%E8%A8%AD%E5%AE%9A&quot; aria-label=&quot;独自ドメインの設定 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;独自ドメインの設定&lt;/h2&gt;
+&lt;p&gt;GoogleDomains で買った。&lt;/p&gt;
+&lt;p&gt;A レコードを設定、&lt;a href=&quot;https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain&quot;&gt;ここ&lt;/a&gt;に書いてある値を入れる。&lt;/p&gt;
+&lt;p&gt;ついでに&lt;a href=&quot;https://docs.github.com/ja/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain-and-the-www-subdomain-variant&quot;&gt;ここ&lt;/a&gt;に書いてある www の設定もやった。&lt;/p&gt;
+&lt;h3 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://howpon.com/7674&quot;&gt;GitHub Pages – 独自ドメインを設定して HTTPS(SSL)にする方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@isphinxs/using-a-custom-domain-name-with-github-pages-c9cdc2084d54&quot;&gt;Using a Custom Domain Name with GitHub Pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;github-action-の設定&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#github-action-%E3%81%AE%E8%A8%AD%E5%AE%9A&quot; aria-label=&quot;github action の設定 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Github Action の設定&lt;/h2&gt;
+&lt;p&gt;毎回、&lt;code&gt;npm run deploy&lt;/code&gt;するのは面倒なので自動化する。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.github/workflows/gh-pages.yml&lt;/code&gt;を作る。&lt;br&gt;
+&lt;a href=&quot;https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-gatsby&quot;&gt;サンプル&lt;/a&gt;をいじった。&lt;br&gt;
+秘密鍵の作り方は&lt;a href=&quot;https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key&quot;&gt;ここ&lt;/a&gt;に書いてあった。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;yml&quot; data-index=&quot;4&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;GitHub Pages&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      - &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;main&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;ubuntu-20.04&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;concurrency&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;${{ github.workflow }}-${{ github.ref }}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      - &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;actions/checkout@v3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      - &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;Setup Node&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;actions/setup-node@v3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;node-version&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;17&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      - &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;Cache dependencies&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;actions/cache@v2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;~/.npm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;${{ runner.os }}-node-${{ hashFiles(&amp;#39;**/package-lock.json&amp;#39;) }}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;restore-keys&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk15&quot;&gt;|&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk8&quot;&gt;            ${{ runner.os }}-node-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      - &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;npm ci&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      - &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;npm run format&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;# - run: npm run test&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      - &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;npm run build&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;# - name: Deploy&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;#   uses: peaceiris/actions-gh-pages@v3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;#   if: ${{ github.ref == &amp;#39;refs/heads/main&amp;#39; }}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;#   with:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;#     github_token: ${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;#     publish_dir: ./public&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      - &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;Deploy&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;peaceiris/actions-gh-pages@v3&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;deploy_key&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;${{ secrets.ACTIONS_DEPLOY_KEY }}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;external_repository&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;ryota2357/ryota2357-github-pages&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;publish_branch&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;gh-pages&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;cname&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;ryota2357.com&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;参考-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83-1&quot; aria-label=&quot;参考 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://zenn.dev/nikaera/articles/hugo-github-actions-for-github-pages&quot;&gt;Hugo + GitHub Pages + GitHub Actions で独自ドメインのウェブサイトを構築する&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;google-アナリティクス設定&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#google-%E3%82%A2%E3%83%8A%E3%83%AA%E3%83%86%E3%82%A3%E3%82%AF%E3%82%B9%E8%A8%AD%E5%AE%9A&quot; aria-label=&quot;google アナリティクス設定 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Google アナリティクス設定&lt;/h2&gt;
+&lt;p&gt;gtag を使う&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;5&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ npm uninstall gatsby-plugin-google-analytics&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ npm install gatsby-plugin-google-gtag&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;google アナリティクスでトラッキング ID を取得してきて gatsby-config.js に設定&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;js&quot; data-index=&quot;6&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk10&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;resolve:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;gatsby-plugin-google-gtag&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;options:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;trackingIds:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;G-0123456789&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;],&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;pluginConfig:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;          &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;head:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        },&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      },&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    },&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;sitemap&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sitemap&quot; aria-label=&quot;sitemap permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sitemap&lt;/h2&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;7&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;$ npm i gatsby-plugin-sitemap&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;js&quot; data-index=&quot;8&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk10&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins:&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; [&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`gatsby-plugin-sitemap`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;サーチコンソールとアナリティクスの連携もしておいた。&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .default-dark {
+    background-color: #1E1E1E;
+    color: #D4D4D4;
+  }
+  .default-dark .mtk1 { color: #D4D4D4; }
+  .default-dark .mtk8 { color: #CE9178; }
+  .default-dark .mtk12 { color: #9CDCFE; }
+  .default-dark .mtk11 { color: #DCDCAA; }
+  .default-dark .mtk4 { color: #569CD6; }
+  .default-dark .mtk15 { color: #C586C0; }
+  .default-dark .mtk3 { color: #6A9955; }
+  .default-dark .mtk10 { color: #4EC9B0; }
+  .default-dark .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
+  }
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[gatsby-remark-vscodeにハイライト可能な言語を追加する]]></title><description><![CDATA[公式 docsに書いてあったのですが、少しわかりにくかったので。 非常に簡単に追加できました。 例として.txtと.dartを追加してみます。 対応してる言語 gatsby-remark-vscode は 55 の言語のハイライトに対応してます。(2021/3/1…]]></description><link>https://ryota2357.com/blog/2022/gatsby-hilight-vscode-add/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-hilight-vscode-add/</guid><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.com/plugins/gatsby-remark-vscode/&quot;&gt;公式 docs&lt;/a&gt;に書いてあったのですが、少しわかりにくかったので。&lt;br&gt;
 非常に簡単に追加できました。&lt;/p&gt;
 &lt;p&gt;例として&lt;code&gt;.txt&lt;/code&gt;と&lt;code&gt;.dart&lt;/code&gt;を追加してみます。&lt;/p&gt;
 &lt;h2 id=&quot;対応してる言語&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%A6%E3%82%8B%E8%A8%80%E8%AA%9E&quot; aria-label=&quot;対応してる言語 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;対応してる言語&lt;/h2&gt;
@@ -254,12 +489,12 @@
     background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[9.細かい変更(Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log9/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log9/</guid><content:encoded>&lt;blockquote&gt;
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[9.細かい変更 (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
+gatsbyのバージョンは 4.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log9/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log9/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;大きく追加するものは多分もうない。&lt;br&gt;
@@ -321,7 +556,7 @@ h2 タグの&lt;code&gt;margin-top&lt;/code&gt;を 3rem にした。&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;jsx&quot; data-index=&quot;6&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      resolve: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`gatsby-plugin-manifest`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      options: {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        name: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`ryota2357 memo, log, record...`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        name: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`ryota2357`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        short_name: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`ryota2357`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        start_url: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`/`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        background_color: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`#f6f5f5`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
@@ -329,8 +564,7 @@ h2 タグの&lt;code&gt;margin-top&lt;/code&gt;を 3rem にした。&lt;/p&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        display: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`minimal-ui`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        icon: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`src/images/profile-pic.jpg`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk3&quot;&gt;// This path is relative to the root of the site.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      },&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    },&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`gatsby-plugin-offline`&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    },&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;
@@ -440,11 +674,11 @@ h2 タグの&lt;code&gt;margin-top&lt;/code&gt;を 3rem にした。&lt;/p&gt;
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[8.tag個別ページ作成 (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.0 一覧はここ gatsby-node…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log8/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log8/</guid><content:encoded>&lt;blockquote&gt;
+gatsbyのバージョンは 4.9 一覧はここ gatsby-node.js…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log8/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log8/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;gatsby-nodejs-の整理&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gatsby-nodejs-%E3%81%AE%E6%95%B4%E7%90%86&quot; aria-label=&quot;gatsby nodejs の整理 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;gatsby-node.js の整理&lt;/h2&gt;
@@ -1192,11 +1426,11 @@ Pages にはちゃんとあるのに。。。&lt;/p&gt;
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[7.Markdown内の相対パスによるリンクが上手くできない (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log7/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log7/</guid><content:encoded>&lt;blockquote&gt;
+gatsbyのバージョンは 4.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log7/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log7/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;ここまで、この投稿は全て notion にメモしてただけだでまとめてなかった。&lt;br&gt;
@@ -1350,11 +1584,11 @@ GIF は gatsby の方がいい感じの処理はしてくれず、ただ img で
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[6.投稿日と更新日を設置する (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log6/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log6/</guid><content:encoded>&lt;blockquote&gt;
+gatsbyのバージョンは 4.9 一覧はここ 記事の Markdown…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log6/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log6/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;記事の Markdown の&lt;code&gt;frontmatter&lt;/code&gt;には&lt;code&gt;date&lt;/code&gt;というプロパティがあるけど、これは投稿日、更新日のどちらかしか表せず不便である。&lt;br&gt;
@@ -1752,11 +1986,11 @@ gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[5.blog個別記事のデザイン (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.0 一覧はここ blog…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log5/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log5/</guid><content:encoded>&lt;blockquote&gt;
+gatsbyのバージョンは 4.9 一覧はここ blog…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log5/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log5/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;blog 記事のレイアウトを整えていく。&lt;/p&gt;
@@ -2073,11 +2307,11 @@ gatsby-remark-prismjs を&lt;code&gt;gatsby-config.js&lt;/code&gt;とか&lt;code
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[4.ページの追加とデザイン (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log4/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log4/</guid><content:encoded>&lt;blockquote&gt;
+gatsbyのバージョンは 4.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log4/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log4/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;調整は終わったから、機能追加とかも含めたデザイン変更をする&lt;br&gt;
@@ -3184,11 +3418,11 @@ gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[3.整理 (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log3/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log3/</guid><content:encoded>&lt;blockquote&gt;
+gatsbyのバージョンは 4.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log3/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log3/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;大まかなレイアウト調整、いらないものを削除、コードの整理を行う。&lt;/p&gt;
@@ -3617,7 +3851,7 @@ gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;ブログ記事をblog下の-url-に変更&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%96%E3%83%AD%E3%82%B0%E8%A8%98%E4%BA%8B%E3%82%92blog%E4%B8%8B%E3%81%AE-url-%E3%81%AB%E5%A4%89%E6%9B%B4&quot; aria-label=&quot;ブログ記事をblog下の url に変更 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ブログ記事を&lt;code&gt;/blog&lt;/code&gt;下の URL に変更&lt;/h2&gt;
@@ -3834,11 +4068,11 @@ gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[1.セットアップ (Gatsby-jsによるサイト構築記録)]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log1/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log1/</guid><content:encoded>&lt;blockquote&gt;
+gatsbyのバージョンは 4.9 一覧はここ 環境構築はパス。 VSCode…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log1/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log1/</guid><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log0/&quot;&gt;一覧はここ&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;環境構築はパス。&lt;/p&gt;
@@ -4132,10 +4366,10 @@ siteMetadata オブジェクトにプロパティを追加したので、これ�
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[Gatsby-jsによるサイト構築記録]]></title><description><![CDATA[このサイトを作るまでの記録。(時系列順) 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。 スターターをgatsby newしたのは 2022 年の 3 月上旬。
-gatsby-cliのバージョンは 4.9.0 随時更新。 1.セットアップ…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log0/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log0/</guid><content:encoded>&lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
+gatsbyのバージョンは 4.9 随時更新。 1.セットアップ…]]></description><link>https://ryota2357.com/blog/2022/gatsby-site-create-log0/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/gatsby-site-create-log0/</guid><content:encoded>&lt;p&gt;このサイトを作るまでの記録。(時系列順)&lt;br&gt;
 実際に作業を行なったメモに追記、編集して投稿してるので投稿日と作業日は一致しない。&lt;/p&gt;
 &lt;p&gt;スターターを&lt;code&gt;gatsby new&lt;/code&gt;したのは 2022 年の 3 月上旬。
-&lt;code&gt;gatsby-cli&lt;/code&gt;のバージョンは 4.9.0&lt;/p&gt;
+&lt;code&gt;gatsby&lt;/code&gt;のバージョンは 4.9&lt;/p&gt;
 &lt;p&gt;随時更新。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log1/&quot;&gt;1.セットアップ&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log2/&quot;&gt;2.サイトのディレクトリ変更&lt;/a&gt;&lt;/p&gt;
@@ -4146,6 +4380,7 @@ gatsby-cliのバージョンは 4.9.0 随時更新。 1.セットアップ…]]>
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log7/&quot;&gt;7.Markdown 内の相対パスによるリンクが上手くできない&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsyb-site-create-log8/&quot;&gt;8.tag 個別ページ作成&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsyb-site-create-log9/&quot;&gt;9.細かい変更&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log10/&quot;&gt;10.Github Pages でデプロイとアナリティクスとサイトマップ&lt;/a&gt;&lt;/p&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;

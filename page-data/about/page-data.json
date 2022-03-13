@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-about-js",
     "path": "/about/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"ryota2357","author":{"name":"ryota2357","summary":"電気通信大学0年<br />\n      Unity、C#、競プロなど。\n      "},"description":"namespace ryota2357;","siteUrl":"https://ryota2357.com","repository":"https://github.com/ryota2357/ryota2357","social":{"github":"ryota2357","unityroom":"ryota2357","twitter":"95s7k84695a","atcoder":"R2357"}}}},"pageContext":{}},
+    "result": {"data":{"site":{"siteMetadata":{"title":"ryota2357","author":{"name":"ryota2357","summary":"電気通信大学0年<br />\n      Unity、C#、競プロなど。\n      "},"description":"namespace ryota2357;","siteUrl":"https://ryota2357.com","repository":"ryota2357/ryota2357","social":{"github":"ryota2357","unityroom":"ryota2357","twitter":"95s7k84695a","atcoder":"R2357"}}}},"pageContext":{}},
     "staticQueryHashes": ["1334514254","1725242874"]}
