@@ -1,4 +1,644 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Apr 2022 05:10:42 GMT</lastBuildDate><item><title><![CDATA[[参加記] ABC245]]></title><description><![CDATA[ACB245 に参加しました。 ちょっとした PC のトラブルがあったけど、パフォーマンスはいい感じのが出てよかった。 A 問で WA してしまった。サンプルはちゃんと試そう。 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Apr 2022 09:57:20 GMT</lastBuildDate><item><title><![CDATA[zshプロンプトをカスタマイズする]]></title><description><![CDATA[zsh プロンプトをカスタマイズする プラグインを入れずにカスタマイズをする。 基本 まず、プロンプトのカスタマイズは.zshrcなどでPROMPT…]]></description><link>https://ryota2357.com/blog/2022/zsh-prompt-custom/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/zsh-prompt-custom/</guid><content:encoded>&lt;h1&gt;zsh プロンプトをカスタマイズする&lt;/h1&gt;
+&lt;p&gt;プラグインを入れずにカスタマイズをする。&lt;/p&gt;
+&lt;h2 id=&quot;基本&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9F%BA%E6%9C%AC&quot; aria-label=&quot;基本 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;基本&lt;/h2&gt;
+&lt;p&gt;まず、プロンプトのカスタマイズは&lt;code&gt;.zshrc&lt;/code&gt;などで&lt;code&gt;PROMPT&lt;/code&gt;などに値を代入することで行える&lt;/p&gt;
+&lt;p&gt;試しに&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;bash&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# .zshrc&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;PROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;$&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;とすると&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c987250235266523d660d7cdefbaf81c/776d3/terminal_%24.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.354430379746837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAM0lEQVQY02PQMFD9r6ak+l9dVfW/ugp2rK2h+V9fWwdTTlUNFauo/mdgYGD4T2U8yA0EAOs0WKZaLpykAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;$のみ&quot;
+        title=&quot;$のみ&quot;
+        src=&quot;/static/c987250235266523d660d7cdefbaf81c/f058b/terminal_%24.png&quot;
+        srcset=&quot;/static/c987250235266523d660d7cdefbaf81c/c26ae/terminal_%24.png 158w,
+/static/c987250235266523d660d7cdefbaf81c/6bdcf/terminal_%24.png 315w,
+/static/c987250235266523d660d7cdefbaf81c/f058b/terminal_%24.png 630w,
+/static/c987250235266523d660d7cdefbaf81c/40601/terminal_%24.png 945w,
+/static/c987250235266523d660d7cdefbaf81c/78612/terminal_%24.png 1260w,
+/static/c987250235266523d660d7cdefbaf81c/776d3/terminal_%24.png 1814w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;のようになり、またさらに以下のようにすると&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;bash&quot; data-index=&quot;1&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# .zshrc&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;PROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;$&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;RPROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;///&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bcae8831f66b2526924def85abb24047/776d3/terminal_%24slash.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.354430379746837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAMklEQVQY02PQMFD9r6ak+l9dVfW/ugp2rK2h+V9fWwdTTlUNgVUgmIGBgeE/lfEgNxAA6y9YpphYK0IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;$と///&quot;
+        title=&quot;$と///&quot;
+        src=&quot;/static/bcae8831f66b2526924def85abb24047/f058b/terminal_%24slash.png&quot;
+        srcset=&quot;/static/bcae8831f66b2526924def85abb24047/c26ae/terminal_%24slash.png 158w,
+/static/bcae8831f66b2526924def85abb24047/6bdcf/terminal_%24slash.png 315w,
+/static/bcae8831f66b2526924def85abb24047/f058b/terminal_%24slash.png 630w,
+/static/bcae8831f66b2526924def85abb24047/40601/terminal_%24slash.png 945w,
+/static/bcae8831f66b2526924def85abb24047/78612/terminal_%24slash.png 1260w,
+/static/bcae8831f66b2526924def85abb24047/776d3/terminal_%24slash.png 1814w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;となる(左に&lt;code&gt;///&lt;/code&gt;が追加された)。&lt;/p&gt;
+&lt;h3 id=&quot;僕のプロンプト&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%83%95%E3%81%AE%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88&quot; aria-label=&quot;僕のプロンプト permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;僕のプロンプト&lt;/h3&gt;
+&lt;p&gt;僕はできる限りシンプルにしたかったので、以下のような見た目になっている。
+(普段はこれに tmux を起動して、その他の情報を載せてたりする)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aa4388082c8a42f0b46617965fac75a1/24def/terminal_my.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 15.18987341772152%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAUElEQVQI12Ow0Fb8r6aj+F9RTuG/orw8Glb4ryAn/19FSfm/qrIKmA0Sw1QnD1Wn9J9BWELgPy83638GBgaKMRMT038GZhYWqhjGyMgINhAAcDxD+KukyUgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;スクリーンショット 2022-04-03 18.03.57.png&quot;
+        title=&quot;スクリーンショット 2022-04-03 18.03.57.png&quot;
+        src=&quot;/static/aa4388082c8a42f0b46617965fac75a1/f058b/terminal_my.png&quot;
+        srcset=&quot;/static/aa4388082c8a42f0b46617965fac75a1/c26ae/terminal_my.png 158w,
+/static/aa4388082c8a42f0b46617965fac75a1/6bdcf/terminal_my.png 315w,
+/static/aa4388082c8a42f0b46617965fac75a1/f058b/terminal_my.png 630w,
+/static/aa4388082c8a42f0b46617965fac75a1/40601/terminal_my.png 945w,
+/static/aa4388082c8a42f0b46617965fac75a1/78612/terminal_my.png 1260w,
+/static/aa4388082c8a42f0b46617965fac75a1/24def/terminal_my.png 1812w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;これの設定ファイルは下に折りたたんだ。この説明は最後で行う。&lt;/p&gt;
+&lt;details&gt;
+  &lt;summary&gt;設定ファイル&lt;/summary&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;```bash&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;left-prompt() {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  local dir=&amp;quot;%F{11}%~%f&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  local next=&amp;quot;%F{47}❯%f &amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  echo -e &amp;quot;\n${user}${dir}\n${next}&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;right-prompt() {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  local time=&amp;quot;%F{242}%T%f&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  echo &amp;quot;${time}&amp;quot;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;PROMPT=`left-prompt`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;RPROMPT=`right-prompt`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;unset -f left-prompt&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;unset -f right-prompt&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;```&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;h2 id=&quot;情報の追加&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%83%85%E5%A0%B1%E3%81%AE%E8%BF%BD%E5%8A%A0&quot; aria-label=&quot;情報の追加 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;情報の追加&lt;/h2&gt;
+&lt;p&gt;現在のディレクトリと時間を表示するためには&lt;code&gt;%~&lt;/code&gt;と&lt;code&gt;%T&lt;/code&gt;を用いると表示できる。&lt;/p&gt;
+&lt;p&gt;例えば&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;bash&quot; data-index=&quot;3&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;PROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%~ &amp;gt; &amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;RPROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%T&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;とすると、&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/827801fb310f01e0ff4812f5d3e5c2f3/24def/terminal_info.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 15.18987341772152%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAT0lEQVQI162KQQqAMAwEc8g7mrapCJUg+gH//6oRCyKe9TC7A7ty7J2+zcQSNHdyShTLFLPRORmtOpO34c9mr4+XyhqBiMgVqCq3f0T4kxOj90QQYqR2TgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;スクリーンショット 2022-04-03 18.04.19.png&quot;
+        title=&quot;スクリーンショット 2022-04-03 18.04.19.png&quot;
+        src=&quot;/static/827801fb310f01e0ff4812f5d3e5c2f3/f058b/terminal_info.png&quot;
+        srcset=&quot;/static/827801fb310f01e0ff4812f5d3e5c2f3/c26ae/terminal_info.png 158w,
+/static/827801fb310f01e0ff4812f5d3e5c2f3/6bdcf/terminal_info.png 315w,
+/static/827801fb310f01e0ff4812f5d3e5c2f3/f058b/terminal_info.png 630w,
+/static/827801fb310f01e0ff4812f5d3e5c2f3/40601/terminal_info.png 945w,
+/static/827801fb310f01e0ff4812f5d3e5c2f3/78612/terminal_info.png 1260w,
+/static/827801fb310f01e0ff4812f5d3e5c2f3/24def/terminal_info.png 1812w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;のようになる。&lt;/p&gt;
+&lt;p&gt;下の表は&lt;a href=&quot;https://tegetegekibaru.blogspot.com/2012/08/zsh_2.html&quot;&gt;https://tegetegekibaru.blogspot.com/2012/08/zsh_2.html&lt;/a&gt;より、そのままコピペさせていただいた。上の例のようにパラメータを&lt;code&gt;PROMPT&lt;/code&gt;などに渡せば良い&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;パラメータ&lt;/th&gt;
+&lt;th&gt;出力内容&lt;/th&gt;
+&lt;th&gt;例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%M&lt;/td&gt;
+&lt;td&gt;ホスト名&lt;/td&gt;
+&lt;td&gt;localhost.localdomain&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%m&lt;/td&gt;
+&lt;td&gt;ホスト名&lt;/td&gt;
+&lt;td&gt;localhost&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%n&lt;/td&gt;
+&lt;td&gt;ユーザ名&lt;/td&gt;
+&lt;td&gt;root&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%#&lt;/td&gt;
+&lt;td&gt;ユーザ種別&lt;/td&gt;
+&lt;td&gt;#（root の場合） %（root 以外）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%y&lt;/td&gt;
+&lt;td&gt;ログイン端末名&lt;/td&gt;
+&lt;td&gt;pts/0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%l&lt;/td&gt;
+&lt;td&gt;ログイン端末名&lt;/td&gt;
+&lt;td&gt;pst/0（tty*の場合は tty を省略）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%?&lt;/td&gt;
+&lt;td&gt;直前のコマンドの戻り値&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%h %!&lt;/td&gt;
+&lt;td&gt;コマンド実行数 （history 数）&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%d %/&lt;/td&gt;
+&lt;td&gt;カレントディレクトリ&lt;/td&gt;
+&lt;td&gt;/root/currentdir&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%~&lt;/td&gt;
+&lt;td&gt;カレントディレクトリ&lt;/td&gt;
+&lt;td&gt;~/currentdir&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%C&lt;/td&gt;
+&lt;td&gt;カレントディレクトリ&lt;/td&gt;
+&lt;td&gt;currentdir&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%c %.&lt;/td&gt;
+&lt;td&gt;カレントディレクトリ&lt;/td&gt;
+&lt;td&gt;currentdir （$PWD=$HOME の場合は~）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%D&lt;/td&gt;
+&lt;td&gt;日付&lt;/td&gt;
+&lt;td&gt;12-07-31 (yy-mm-dd)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%W&lt;/td&gt;
+&lt;td&gt;日付&lt;/td&gt;
+&lt;td&gt;07/31/12 (mm/dd/yy)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%w&lt;/td&gt;
+&lt;td&gt;日付&lt;/td&gt;
+&lt;td&gt;Sun 31 (day dd)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%*&lt;/td&gt;
+&lt;td&gt;時間&lt;/td&gt;
+&lt;td&gt;15:50:30 (hh:mm:ss)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%T&lt;/td&gt;
+&lt;td&gt;時間&lt;/td&gt;
+&lt;td&gt;15:50 (hh:mm)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%t %@&lt;/td&gt;
+&lt;td&gt;時間&lt;/td&gt;
+&lt;td&gt;03:50PM (hh:mm(am/pm format))&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;装飾&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%A3%85%E9%A3%BE&quot; aria-label=&quot;装飾 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;装飾&lt;/h2&gt;
+&lt;p&gt;ただの白文字ではつまらないので装飾したい。&lt;/p&gt;
+&lt;h3 id=&quot;色&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%89%B2&quot; aria-label=&quot;色 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;色&lt;/h3&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;bash&quot; data-index=&quot;4&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;%F{色番号}色をつける内容%f&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;とすると色がつけられる。
+つまり&lt;code&gt;%F&lt;/code&gt;と&lt;code&gt;%fで&lt;/code&gt;囲われたところに色がつく。色はターミナルの 256 色(0~255)で指定する。&lt;/p&gt;
+&lt;p&gt;例えば&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;bash&quot; data-index=&quot;5&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;PROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{45}%~%f &amp;gt; &amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;とすると&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/648baa509a5cdd21ccb5bb1477389577/776d3/terminal_color.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.354430379746837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAASElEQVQY063MOw6AIBQF0Vu84Gcbgr4ABkr3v7GxNdFOilNNMvKrkY5C650zF9IW2WN6iGR36md7k2xGYSIsK2aGpL/EYGOHN1rLWQxIisrAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;color&quot;
+        title=&quot;color&quot;
+        src=&quot;/static/648baa509a5cdd21ccb5bb1477389577/f058b/terminal_color.png&quot;
+        srcset=&quot;/static/648baa509a5cdd21ccb5bb1477389577/c26ae/terminal_color.png 158w,
+/static/648baa509a5cdd21ccb5bb1477389577/6bdcf/terminal_color.png 315w,
+/static/648baa509a5cdd21ccb5bb1477389577/f058b/terminal_color.png 630w,
+/static/648baa509a5cdd21ccb5bb1477389577/40601/terminal_color.png 945w,
+/static/648baa509a5cdd21ccb5bb1477389577/78612/terminal_color.png 1260w,
+/static/648baa509a5cdd21ccb5bb1477389577/776d3/terminal_color.png 1814w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;色番号の一覧は次の ruby スクリプトを実行することで見れる。(このスクリプトは数年前にどっかで拾った)&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;ruby&quot; data-index=&quot;6&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;@fg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\x1b&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;[38;5;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;@bg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\x1b&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;[48;5;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk12&quot;&gt;@rs&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\x1b&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;[0m&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk15&quot;&gt;def&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  number = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;%3d&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; % code&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;@bg&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;m &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;@rs&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;@fg&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;m &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}#{&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;@rs&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt; &amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk15&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk7&quot;&gt;256&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.times &lt;/span&gt;&lt;span class=&quot;mtk15&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; |&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;|&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; color(n)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk15&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; (n + &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;).modulo(&lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;).zero?&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk15&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b85a410e914d68436d6a06c7aff7938c/6ee58/256color.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 78.48101265822784%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAADaklEQVQ4y23O209bBQDH8UN8mBvFhJXRy8ppe3ruPS3U4rgNM7ZxySh3OKXQFpgglIsbOJAYe6MUjHHTLEwBp5k+6dRt+uC/9zX6pvTh9/j75Ctc8TjwX6vnoSriUhppsOtxugRmp+uod1zlctMEzrfdzDaP0HDVw5WxcRo9HpJTEzQ4HAiC8N+p4Q6arzhZtEapd3sIrS7ilRXub27R5I2i9H2F193N/ds/0xxqQypu4LLCLB0+ocl7/SLYsJJBCBjUrX6BEJRxrKYQQgbCShVBk3DsDSNYCsLuHkJYxrE7QZ2lIXxa5K1aoFKZ5VJMRf68xKW4RPBpkss3dALPCryjqHTem8XZYtKZKOH0a3QkkzQFNXqyZRqaaoDDH8ziknQSKxVcssTwRyk8ms69rRJeTWF0w6bFMEms5/EZOokdG5+pM/pJmUaP7yI4s5bEJ2vYm2V8isT0xylEw2B6p0SLpTCVTyK2GUwWCogxjcnjGcS4xsyTEk6xRuHqyDyK1yQ3eojsU1lLzqEFDVbtMqqis7aZxYhYfLhxgB61WN5OoUXDrO0d4hWDF8Hcs3mUToONsypyl8b6iwXUmwa5n6rorTo7y7NYqsn2SglLM3m4OUc0HObR9gEtvhpgPpsiEtApLlWwgjKF9TlaFZ18rkSrX6M8leVd0aI0WSUWMCmkbWKSTmWhTKDZfxGsFLK0RnSOSse0tqlUjzPE4iaHR1ViHSqVkyTtvQYHJwXivSalszTtfRbVF1WCeo3C08E5uq/pPB88pNOlcD6epstjcDZWoatF49vFebolk2+WDuiRTU5WbXpUnfP1MopbrAE+ztD1nsHzr4/p6lA4P53nZo/J2dkBvXGdH/bnuBOP8v1eib72KN/l09y+YfFjpYIZCl0Ef32QZsAM83rniH7L5Pe9BQaiFr/tHzGkWPyRyDLii/AmUSEhRnhlpxgJRvgrVSHWXAP8B+g3Df7cP+KOpfC6mKS/TedVvsjduMLLx+MMdWu8/HKXwW6TX57OM9AT5s3pAZYauAja0zOIop90aolAwM3i8vvIqpuV3DiK5iO3OU3Ykth6kMWK6Ow82qEt1sZn+SKBQA3wVt8t3G43/QN38XqvMzQ0hs/nJzE8jtjiZ2x0ikBAYnJyBkkKYds2ckgmk8n8+/s/+DfbhxId3bHb/AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;256color-list&quot;
+        title=&quot;256color-list&quot;
+        src=&quot;/static/b85a410e914d68436d6a06c7aff7938c/f058b/256color.png&quot;
+        srcset=&quot;/static/b85a410e914d68436d6a06c7aff7938c/c26ae/256color.png 158w,
+/static/b85a410e914d68436d6a06c7aff7938c/6bdcf/256color.png 315w,
+/static/b85a410e914d68436d6a06c7aff7938c/f058b/256color.png 630w,
+/static/b85a410e914d68436d6a06c7aff7938c/40601/256color.png 945w,
+/static/b85a410e914d68436d6a06c7aff7938c/78612/256color.png 1260w,
+/static/b85a410e914d68436d6a06c7aff7938c/6ee58/256color.png 1640w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;太文字&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%A4%AA%E6%96%87%E5%AD%97&quot; aria-label=&quot;太文字 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;太文字&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;%B&lt;/code&gt;と&lt;code&gt;%b&lt;/code&gt;で囲う&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d7320959a08ae938827e81db096280f2/8bb81/terminal_colorb.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16.455696202531648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAYElEQVQI153LuwqDQBhE4VklpXfY30tE12AhrL7/2x3RLgQCSfEVZ2C0xg07IuMUOOJOmJ+sL88SjGU2hs5j/t3Q9bTePvaLVDSoNh5ZTlWWSCJNRZII53T3T5z+OH1xAqexQuP2O0+NAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;太文字&quot;
+        title=&quot;太文字&quot;
+        src=&quot;/static/d7320959a08ae938827e81db096280f2/f058b/terminal_colorb.png&quot;
+        srcset=&quot;/static/d7320959a08ae938827e81db096280f2/c26ae/terminal_colorb.png 158w,
+/static/d7320959a08ae938827e81db096280f2/6bdcf/terminal_colorb.png 315w,
+/static/d7320959a08ae938827e81db096280f2/f058b/terminal_colorb.png 630w,
+/static/d7320959a08ae938827e81db096280f2/40601/terminal_colorb.png 945w,
+/static/d7320959a08ae938827e81db096280f2/78612/terminal_colorb.png 1260w,
+/static/d7320959a08ae938827e81db096280f2/8bb81/terminal_colorb.png 1602w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;下線&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E4%B8%8B%E7%B7%9A&quot; aria-label=&quot;下線 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;下線&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;%U&lt;/code&gt;と&lt;code&gt;%u&lt;/code&gt;で囲う&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c6a00b02bfcbf8158a7dce40217b5850/8bb81/terminal_coloru.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16.455696202531648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAX0lEQVQI153LyQqDQBRE0WrBpUODvGc7txokcfj/vysxriQQ0MVZ3ILC6zNR5zfrpuO2rPRdxbEXDl7pW2XhhCpXpSuYi/7sByDJCCsMo5g2TQmAQXAyBt++xeDB6Y8dl4RC0ABvRGcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;下線&quot;
+        title=&quot;下線&quot;
+        src=&quot;/static/c6a00b02bfcbf8158a7dce40217b5850/f058b/terminal_coloru.png&quot;
+        srcset=&quot;/static/c6a00b02bfcbf8158a7dce40217b5850/c26ae/terminal_coloru.png 158w,
+/static/c6a00b02bfcbf8158a7dce40217b5850/6bdcf/terminal_coloru.png 315w,
+/static/c6a00b02bfcbf8158a7dce40217b5850/f058b/terminal_coloru.png 630w,
+/static/c6a00b02bfcbf8158a7dce40217b5850/40601/terminal_coloru.png 945w,
+/static/c6a00b02bfcbf8158a7dce40217b5850/78612/terminal_coloru.png 1260w,
+/static/c6a00b02bfcbf8158a7dce40217b5850/8bb81/terminal_coloru.png 1602w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;背景色&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%83%8C%E6%99%AF%E8%89%B2&quot; aria-label=&quot;背景色 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;背景色&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;%S%F&lt;/code&gt;と&lt;code&gt;%f%s&lt;/code&gt;で囲う。(&lt;code&gt;%S&lt;/code&gt;と&lt;code&gt;%s&lt;/code&gt;をつける)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/09531ac4c244da05377e140e9611f414/8bb81/terminal_colors.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16.455696202531648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAYklEQVQI12NQdXX/L+7u9V9WQ+e/npb2f0UFmf8qSmL/lRXF/yvKi/+XkhT7Ly6GiqUlpf5LiIljiIMwA4Oj/38G15D/rLKK/wV5ef8zMDD8Z2KCYEZGBjCfJMzIQIYmPBgAsh1EVk4IPS0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;背景&quot;
+        title=&quot;背景&quot;
+        src=&quot;/static/09531ac4c244da05377e140e9611f414/f058b/terminal_colors.png&quot;
+        srcset=&quot;/static/09531ac4c244da05377e140e9611f414/c26ae/terminal_colors.png 158w,
+/static/09531ac4c244da05377e140e9611f414/6bdcf/terminal_colors.png 315w,
+/static/09531ac4c244da05377e140e9611f414/f058b/terminal_colors.png 630w,
+/static/09531ac4c244da05377e140e9611f414/40601/terminal_colors.png 945w,
+/static/09531ac4c244da05377e140e9611f414/78612/terminal_colors.png 1260w,
+/static/09531ac4c244da05377e140e9611f414/8bb81/terminal_colors.png 1602w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;わかりやすく設定する&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%8F%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B&quot; aria-label=&quot;わかりやすく設定する permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;わかりやすく設定する&lt;/h2&gt;
+&lt;p&gt;エスケープ文字を使って PROMPT を設定するの読みにくい。
+変数や関数を用いてわかりやすくすると良いと思う。&lt;/p&gt;
+&lt;p&gt;僕の設定を再掲する。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aa4388082c8a42f0b46617965fac75a1/24def/terminal_my.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 15.18987341772152%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAUElEQVQI12Ow0Fb8r6aj+F9RTuG/orw8Glb4ryAn/19FSfm/qrIKmA0Sw1QnD1Wn9J9BWELgPy83638GBgaKMRMT038GZhYWqhjGyMgINhAAcDxD+KukyUgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;僕の&quot;
+        title=&quot;僕の&quot;
+        src=&quot;/static/aa4388082c8a42f0b46617965fac75a1/f058b/terminal_my.png&quot;
+        srcset=&quot;/static/aa4388082c8a42f0b46617965fac75a1/c26ae/terminal_my.png 158w,
+/static/aa4388082c8a42f0b46617965fac75a1/6bdcf/terminal_my.png 315w,
+/static/aa4388082c8a42f0b46617965fac75a1/f058b/terminal_my.png 630w,
+/static/aa4388082c8a42f0b46617965fac75a1/40601/terminal_my.png 945w,
+/static/aa4388082c8a42f0b46617965fac75a1/78612/terminal_my.png 1260w,
+/static/aa4388082c8a42f0b46617965fac75a1/24def/terminal_my.png 1812w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;bash&quot; data-index=&quot;7&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;left-prompt&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; dir=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{11}%~%f&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; next=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{47}❯%f &amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; -e &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;\n&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;${user}${dir}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;${next}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;right-prompt&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; time=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{242}%T%f&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;${time}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;PROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`left-prompt`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;RPROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`right-prompt`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; -f left-prompt&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; -f right-prompt&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;shell スクリプトで&lt;code&gt;local&lt;/code&gt;な関数を設定する方法がわからなかったので最後に&lt;code&gt;unset&lt;/code&gt;している。&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://tegetegekibaru.blogspot.com/2012/08/zsh_2.html&quot;&gt;zsh 設定 - プロンプト -&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://chirashi.twittospia.com/%E6%8A%80%E8%A1%93/macos%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E3%81%A7zsh%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%82%92%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B%E6%96%B9/2021-02-13/&quot;&gt;macOS ターミナルで zsh プロンプトをカスタマイズする方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.macha795.com/zsh-prompt-customize/&quot;&gt;zsh プロンプトをカスタマイズ、色と改行と git 対応で見やすくする【Mac】&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .default-dark {
+    background-color: #1E1E1E;
+    color: #D4D4D4;
+  }
+  .default-dark .mtk3 { color: #6A9955; }
+  .default-dark .mtk1 { color: #D4D4D4; }
+  .default-dark .mtk8 { color: #CE9178; }
+  .default-dark .mtk12 { color: #9CDCFE; }
+  .default-dark .mtk6 { color: #D7BA7D; }
+  .default-dark .mtk15 { color: #C586C0; }
+  .default-dark .mtk11 { color: #DCDCAA; }
+  .default-dark .mtk4 { color: #569CD6; }
+  .default-dark .mtk7 { color: #B5CEA8; }
+  .default-dark .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
+  }
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[[参加記] ABC245]]></title><description><![CDATA[ACB245 に参加しました。 ちょっとした PC のトラブルがあったけど、パフォーマンスはいい感じのが出てよかった。 A 問で WA してしまった。サンプルはちゃんと試そう。 
  A - Good morning https://atcoder.jp/contests/abc…]]></description><link>https://ryota2357.com/blog/2022/abc245/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/abc245/</guid><content:encoded>&lt;p&gt;ACB245 に参加しました。&lt;/p&gt;
 &lt;p&gt;ちょっとした PC のトラブルがあったけど、パフォーマンスはいい感じのが出てよかった。&lt;br&gt;
 A 問で WA してしまった。サンプルはちゃんと試そう。&lt;/p&gt;
