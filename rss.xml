@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Apr 2022 09:57:20 GMT</lastBuildDate><item><title><![CDATA[zshプロンプトをカスタマイズする]]></title><description><![CDATA[zsh プロンプトをカスタマイズする プラグインを入れずにカスタマイズをする。 基本 まず、プロンプトのカスタマイズは.zshrcなどでPROMPT…]]></description><link>https://ryota2357.com/blog/2022/zsh-prompt-custom/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/zsh-prompt-custom/</guid><content:encoded>&lt;h1&gt;zsh プロンプトをカスタマイズする&lt;/h1&gt;
-&lt;p&gt;プラグインを入れずにカスタマイズをする。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Apr 2022 10:37:35 GMT</lastBuildDate><item><title><![CDATA[zshプロンプトをカスタマイズする]]></title><description><![CDATA[プラグインを入れずにカスタマイズをする。 基本 まず、プロンプトのカスタマイズは.zshrcなどでPROMPT…]]></description><link>https://ryota2357.com/blog/2022/zsh-prompt-custom/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/zsh-prompt-custom/</guid><content:encoded>&lt;p&gt;プラグインを入れずにカスタマイズをする。&lt;/p&gt;
 &lt;h2 id=&quot;基本&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9F%BA%E6%9C%AC&quot; aria-label=&quot;基本 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;基本&lt;/h2&gt;
 &lt;p&gt;まず、プロンプトのカスタマイズは&lt;code&gt;.zshrc&lt;/code&gt;などで&lt;code&gt;PROMPT&lt;/code&gt;などに値を代入することで行える&lt;/p&gt;
 &lt;p&gt;試しに&lt;/p&gt;
@@ -78,7 +77,7 @@
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;となる(左に&lt;code&gt;///&lt;/code&gt;が追加された)。&lt;/p&gt;
 &lt;h3 id=&quot;僕のプロンプト&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%83%95%E3%81%AE%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88&quot; aria-label=&quot;僕のプロンプト permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;僕のプロンプト&lt;/h3&gt;
-&lt;p&gt;僕はできる限りシンプルにしたかったので、以下のような見た目になっている。
+&lt;p&gt;僕はできる限りシンプルにしたかったので、以下のような見た目になっている。&lt;br&gt;
 (普段はこれに tmux を起動して、その他の情報を載せてたりする)&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -116,23 +115,21 @@
 &lt;p&gt;これの設定ファイルは下に折りたたんだ。この説明は最後で行う。&lt;/p&gt;
 &lt;details&gt;
   &lt;summary&gt;設定ファイル&lt;/summary&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;```bash&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;left-prompt() {&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  local dir=&amp;quot;%F{11}%~%f&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  local next=&amp;quot;%F{47}❯%f &amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  echo -e &amp;quot;\n${user}${dir}\n${next}&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;right-prompt() {&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  local time=&amp;quot;%F{242}%T%f&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;  echo &amp;quot;${time}&amp;quot;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;bash&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;left-prompt&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; dir=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{11}%~%f&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; next=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{47}❯%f &amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; -e &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;\n&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;${user}${dir}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;${next}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;right-prompt&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; time=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{242}%T%f&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;${time}&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;PROMPT=`left-prompt`&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;RPROMPT=`right-prompt`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;PROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`left-prompt`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;RPROMPT=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;`right-prompt`&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;unset -f left-prompt&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;unset -f right-prompt&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;```&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; -f left-prompt&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; -f right-prompt&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/details&gt;
 &lt;h2 id=&quot;情報の追加&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%83%85%E5%A0%B1%E3%81%AE%E8%BF%BD%E5%8A%A0&quot; aria-label=&quot;情報の追加 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;情報の追加&lt;/h2&gt;
 &lt;p&gt;現在のディレクトリと時間を表示するためには&lt;code&gt;%~&lt;/code&gt;と&lt;code&gt;%T&lt;/code&gt;を用いると表示できる。&lt;/p&gt;
@@ -474,7 +471,7 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;わかりやすく設定する&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%8F%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B&quot; aria-label=&quot;わかりやすく設定する permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;わかりやすく設定する&lt;/h2&gt;
-&lt;p&gt;エスケープ文字を使って PROMPT を設定するの読みにくい。
+&lt;p&gt;エスケープ文字を使って PROMPT を設定するの読みにくい。&lt;br&gt;
 変数や関数を用いてわかりやすくすると良いと思う。&lt;/p&gt;
 &lt;p&gt;僕の設定を再掲する。&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -510,6 +507,9 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;local&lt;/code&gt;をつけると変数のスコープを制限できるので zsh が汚れず良い。&lt;br&gt;
+&lt;code&gt;left-prompt()&lt;/code&gt;と&lt;code&gt;right-prompt()&lt;/code&gt;の関数を用いることで&lt;code&gt;PROMPT&lt;/code&gt;, &lt;code&gt;RPROMPT&lt;/code&gt;の意味がわかりやすくなる。&lt;br&gt;
+関数の返り値の扱いは&lt;code&gt;echo&lt;/code&gt;と&lt;code&gt;`function`&lt;/code&gt;を使ってる人がいたので真似した(あってるの?)&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;bash&quot; data-index=&quot;7&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;left-prompt&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;() {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; dir=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{11}%~%f&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; next=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;%F{47}❯%f &amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
@@ -525,7 +525,8 @@
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; -f left-prompt&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; -f right-prompt&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;shell スクリプトで&lt;code&gt;local&lt;/code&gt;な関数を設定する方法がわからなかったので最後に&lt;code&gt;unset&lt;/code&gt;している。&lt;/p&gt;
+&lt;p&gt;関数の宣言もスクリプトローカルにしたかったのだけど、やり方がわからなかった。&lt;br&gt;
+ひとまず最後に&lt;code&gt;unset&lt;/code&gt;するとこで同じ結果は得られるのでそうした。&lt;/p&gt;
 &lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://tegetegekibaru.blogspot.com/2012/08/zsh_2.html&quot;&gt;zsh 設定 - プロンプト -&lt;/a&gt;&lt;/li&gt;
@@ -628,11 +629,11 @@
   .default-dark .mtk3 { color: #6A9955; }
   .default-dark .mtk1 { color: #D4D4D4; }
   .default-dark .mtk8 { color: #CE9178; }
+  .default-dark .mtk11 { color: #DCDCAA; }
+  .default-dark .mtk4 { color: #569CD6; }
   .default-dark .mtk12 { color: #9CDCFE; }
   .default-dark .mtk6 { color: #D7BA7D; }
   .default-dark .mtk15 { color: #C586C0; }
-  .default-dark .mtk11 { color: #DCDCAA; }
-  .default-dark .mtk4 { color: #569CD6; }
   .default-dark .mtk7 { color: #B5CEA8; }
   .default-dark .grvsc-line-highlighted::before {
     background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
@@ -785,11 +786,11 @@ DP を使うべきであった。&lt;/p&gt;
 &lt;h2 id=&quot;e---wrapping-chocolate&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#e---wrapping-chocolate&quot; aria-label=&quot;e   wrapping chocolate permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;E - Wrapping Chocolate&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://atcoder.jp/contests/abc245/tasks/abc245_e&quot;&gt;https://atcoder.jp/contests/abc245/tasks/abc245_e&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;解けなかった。&lt;/p&gt;
-&lt;p&gt;時直しを後日追記する&lt;/p&gt;
+&lt;p&gt;解き直しを後日追記する&lt;/p&gt;
 &lt;h2 id=&quot;f---endless-walk&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#f---endless-walk&quot; aria-label=&quot;f   endless walk permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;F - Endless Walk&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://atcoder.jp/contests/abc245/tasks/abc245_f&quot;&gt;https://atcoder.jp/contests/abc245/tasks/abc245_f&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;解けなかった。&lt;/p&gt;
-&lt;p&gt;時直しを後日追記する&lt;/p&gt;
+&lt;p&gt;解き直しを後日追記する&lt;/p&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;
