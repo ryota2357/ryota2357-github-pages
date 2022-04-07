@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 27 Mar 2022 01:59:14 GMT</lastBuildDate><item><title><![CDATA[[参加記] ABC245]]></title><description><![CDATA[ACB245 に参加しました。 ちょっとした PC のトラブルがあったけど、パフォーマンスはいい感じのが出てよかった。 A 問で WA してしまった。サンプルはちゃんと試そう。 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Apr 2022 05:10:42 GMT</lastBuildDate><item><title><![CDATA[[参加記] ABC245]]></title><description><![CDATA[ACB245 に参加しました。 ちょっとした PC のトラブルがあったけど、パフォーマンスはいい感じのが出てよかった。 A 問で WA してしまった。サンプルはちゃんと試そう。 
  A - Good morning https://atcoder.jp/contests/abc…]]></description><link>https://ryota2357.com/blog/2022/abc245/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/abc245/</guid><content:encoded>&lt;p&gt;ACB245 に参加しました。&lt;/p&gt;
 &lt;p&gt;ちょっとした PC のトラブルがあったけど、パフォーマンスはいい感じのが出てよかった。&lt;br&gt;
 A 問で WA してしまった。サンプルはちゃんと試そう。&lt;/p&gt;
@@ -4639,8 +4639,8 @@ gatsbyのバージョンは 4.9 随時更新。 1.セットアップ…]]></desc
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log5/&quot;&gt;5.blog 個別記事のデザイン&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log6/&quot;&gt;6.投稿日と更新日を設置する&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log7/&quot;&gt;7.Markdown 内の相対パスによるリンクが上手くできない&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;../gatsyb-site-create-log8/&quot;&gt;8.tag 個別ページ作成&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;../gatsyb-site-create-log9/&quot;&gt;9.細かい変更&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log8/&quot;&gt;8.tag 個別ページ作成&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log9/&quot;&gt;9.細かい変更&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;../gatsby-site-create-log10/&quot;&gt;10.Github Pages でデプロイとアナリティクスとサイトマップ&lt;/a&gt;&lt;/p&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
