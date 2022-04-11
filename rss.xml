@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 11 Apr 2022 15:43:17 GMT</lastBuildDate><item><title><![CDATA[[NeoVim] python,rubyのglobal変更されない問題はREADME読んでないだけだった件]]></title><description><![CDATA[NeoVim の:checkhealthの話]]></description><link>https://ryota2357.com/blog/2022/nvim-checkhealth-path/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/nvim-checkhealth-path/</guid><content:encoded>&lt;p&gt;NeoVim の&lt;code&gt;:checkhealth&lt;/code&gt;の話&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 11 Apr 2022 15:47:32 GMT</lastBuildDate><item><title><![CDATA[[NeoVim] python,rubyのglobal変更されない問題はREADME読んでないだけだった件]]></title><description><![CDATA[NeoVim の:checkhealthで python, ruby の global 切り替わらない問題の話。 反省 新しい Macbook を買って NeoVim 環境を再構築した。 その時 python と ruby の設定に pyenv, rbenv…]]></description><link>https://ryota2357.com/blog/2022/nvim-checkhealth-path/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/nvim-checkhealth-path/</guid><content:encoded>&lt;p&gt;NeoVim の&lt;code&gt;:checkhealth&lt;/code&gt;で python, ruby の global 切り替わらない問題の話。&lt;/p&gt;
+&lt;h2 id=&quot;反省&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%8D%E7%9C%81&quot; aria-label=&quot;反省 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;反省&lt;/h2&gt;
+&lt;p&gt;新しい Macbook を買って NeoVim 環境を再構築した。&lt;br&gt;
+その時 python と ruby の設定に pyenv, rbenv を使ったけど、global が切り替わらない問題に遭遇した。&lt;/p&gt;
+&lt;p&gt;pyenv, rbenv の README の Installation を終わららせていにだけだった...&lt;/p&gt;
+&lt;p&gt;google で調べる前にまず公式の README なりリファレンスは読みましょう、ということ。&lt;/p&gt;
+&lt;h2 id=&quot;解決方法&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%B3%95&quot; aria-label=&quot;解決方法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;解決方法&lt;/h2&gt;
+&lt;p&gt;google で「pyenv global 切り替わらない」とか検索すると、path を通せやら init しろやら出てくるが、README にちゃんとしたやり方書いてある。&lt;/p&gt;
+&lt;h3 id=&quot;python&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#python&quot; aria-label=&quot;python permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;python&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/pyenv/pyenv/blob/master/README.md#installation&quot;&gt;README.md の Installation&lt;/a&gt;に書いてあることを抜粋してるだけだが...&lt;/p&gt;
+&lt;p&gt;まず、pyenv のインストール&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;brew install pyenv&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;zsh の人は&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;zsh&quot; data-index=&quot;1&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# ~/.zprofile&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;$(pyenv init --path)&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;zsh&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# ~/.zshrc&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;$(pyenv init -)&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;をそれぞれ追記する。&lt;/p&gt;
+&lt;p&gt;最後に python のインストール、global と NeoVim プラグインのインストール&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;3&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# install できるバージョンの確認&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;pyenv install --list&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# install&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;pyenv install 3.*.*&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# global にする&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;pyenv global 3.*.*&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# nvim で :checkhealth する。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# ヘルプを見ろと言われて、見に行くと&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# 多分こんな感じのコマンドを実行しろと言われる&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;python3 -m pip install --user --upgrade pynvim&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;ruby&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ruby&quot; aria-label=&quot;ruby permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ruby&lt;/h3&gt;
+&lt;p&gt;python と似たような感じ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/rbenv/rbenv/blob/master/README.md#installation&quot;&gt;README.md の Installation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;まず brew&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;4&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;brew install rbenv ruby-build&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;続いて init を実行&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;5&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;rbenv init&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;指示が出るから、それに従う。&lt;/p&gt;
+&lt;p&gt;最後に ruby のインストール、global と NeoVim プラグインのインストール&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;6&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# install できるバージョンの確認&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;rbenv install --list&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# install&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;rbenv install 3.*.*&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# global にする&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;pyenv global 3.*.*&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# nvim で :checkhealth する。&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# 多分こんな感じのコマンドを実行しろと言われる&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;gem install neovim&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;以上。&lt;br&gt;
+README とかリファレンスをちゃんと読もう。&lt;/p&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;
@@ -88,6 +142,18 @@
     opacity: 0.7;
   }
   
+  .default-dark {
+    background-color: #1E1E1E;
+    color: #D4D4D4;
+  }
+  .default-dark .mtk1 { color: #D4D4D4; }
+  .default-dark .mtk3 { color: #6A9955; }
+  .default-dark .mtk11 { color: #DCDCAA; }
+  .default-dark .mtk8 { color: #CE9178; }
+  .default-dark .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
+  }
 &lt;/style&gt;</content:encoded></item><item><title><![CDATA[zshプロンプトをカスタマイズする]]></title><description><![CDATA[プラグインを入れずにカスタマイズをする。 基本 まず、プロンプトのカスタマイズは.zshrcなどでPROMPT…]]></description><link>https://ryota2357.com/blog/2022/zsh-prompt-custom/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/zsh-prompt-custom/</guid><content:encoded>&lt;p&gt;プラグインを入れずにカスタマイズをする。&lt;/p&gt;
 &lt;h2 id=&quot;基本&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%9F%BA%E6%9C%AC&quot; aria-label=&quot;基本 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;基本&lt;/h2&gt;
 &lt;p&gt;まず、プロンプトのカスタマイズは&lt;code&gt;.zshrc&lt;/code&gt;などで&lt;code&gt;PROMPT&lt;/code&gt;などに値を代入することで行える&lt;/p&gt;
