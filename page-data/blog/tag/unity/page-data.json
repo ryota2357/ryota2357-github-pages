@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-page-js",
+    "path": "/blog/tag/unity",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"nodes":[{"frontmatter":{"title":"[Unity] Quaternion.AngleAxis について簡潔に","postdate":"2022/05/07","tags":["unity"]},"fields":{"slug":"/blog/2022/unity-quaternion-angle-axis/"}}]}},"pageContext":{"tag":"unity"}},
+    "staticQueryHashes": ["1334514254","1725242874"]}
