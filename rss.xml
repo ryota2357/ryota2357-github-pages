@@ -1,4 +1,191 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 29 May 2022 15:08:21 GMT</lastBuildDate><item><title><![CDATA[[Vim] latexで保存時に句読点をカンマ・ピリオドに修正する]]></title><description><![CDATA[定期的に置換を実行するのが面倒だったので自動化した。 方法 次のスクリプトを.vimrcに追記すれば良い。 説明 autocmd BufWritePre、つまりバッファを保存する直前に置換を実行(FixPunctuation()を呼び出し)している。 FixPunctuation…]]></description><link>https://ryota2357.com/blog/2022/vim-latex-fix-punctuation/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/vim-latex-fix-punctuation/</guid><content:encoded>&lt;p&gt;定期的に置換を実行するのが面倒だったので自動化した。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 03 Jun 2022 16:15:52 GMT</lastBuildDate><item><title><![CDATA[zplugからsheldonに乗り換えた]]></title><description><![CDATA[zsh の起動が遅かったので調べたら zplug のロードに時間がかかってることがわかった。 色々調べた結果 sheldon に乗り換えて、なかなかいい感じ。 sheldon の特徴と感想 ロードは結構速いと思う。参考にしたこの記事では zinit…]]></description><link>https://ryota2357.com/blog/2022/zsh-plugmanager-zplug-to-sheldon/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/zsh-plugmanager-zplug-to-sheldon/</guid><content:encoded>&lt;p&gt;zsh の起動が遅かったので調べたら zplug のロードに時間がかかってることがわかった。&lt;br&gt;
+色々調べた結果 sheldon に乗り換えて、なかなかいい感じ。&lt;/p&gt;
+&lt;h2 id=&quot;sheldon-の特徴と感想&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sheldon-%E3%81%AE%E7%89%B9%E5%BE%B4%E3%81%A8%E6%84%9F%E6%83%B3&quot; aria-label=&quot;sheldon の特徴と感想 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sheldon の特徴と感想&lt;/h2&gt;
+&lt;p&gt;ロードは結構速いと思う。&lt;a href=&quot;https://ktrysmt.github.io/blog/migrate-zinit-to-sheldon/&quot;&gt;参考にしたこの記事&lt;/a&gt;では zinit より少しだけ速度が改善したらしい。&lt;br&gt;
+僕は zinit を使ったことないのでわからないけど、ひとまず zplug よりは圧倒的に速い。&lt;/p&gt;
+&lt;p&gt;sheldon の特徴として、toml ファイルでのプラグイン管理がある。&lt;br&gt;
+これがなかなか良い。プラグインの遅延ロード設定も簡単にできるし、ローカルの設定ファイルもプラグインと同じ感覚でロードの設定ができる。&lt;br&gt;
+もちろん、toml だから人間にも読みやすい。&lt;/p&gt;
+&lt;h2 id=&quot;導入手順と基本的な使い方&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%B0%8E%E5%85%A5%E6%89%8B%E9%A0%86%E3%81%A8%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9&quot; aria-label=&quot;導入手順と基本的な使い方 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;導入手順と基本的な使い方&lt;/h2&gt;
+&lt;p&gt;基本的には&lt;a href=&quot;https://github.com/rossmacarthur/sheldon&quot;&gt;公式 README&lt;/a&gt;読めば ok。&lt;br&gt;
+Homebrew とかで sheldon 入れて、&lt;code&gt;sheldon init&lt;/code&gt;を実行、&lt;code&gt;eval &quot;$(sheldon source)&quot;&lt;/code&gt;を&lt;code&gt;~/.zshrc&lt;/code&gt;とかに書けば終了。&lt;br&gt;
+とても簡単。&lt;/p&gt;
+&lt;p&gt;設定は&lt;code&gt;~/.sheldon/plugins.toml&lt;/code&gt;に記述する。&lt;code&gt;sheldon init&lt;/code&gt;を実行すると勝手に作られる。&lt;/p&gt;
+&lt;p&gt;アップデートは次のコマンドで実行する。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;$ sheldon lock --update&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;plugin.toml&lt;/code&gt;の書き方は&lt;a href=&quot;https://github.com/rossmacarthur/sheldon#%EF%B8%8F-configuration&quot;&gt;README のここ&lt;/a&gt;読めば、だいたいわかる。&lt;/p&gt;
+&lt;h2 id=&quot;dotfiles-で管理する&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dotfiles-%E3%81%A7%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B&quot; aria-label=&quot;dotfiles で管理する permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;dotfiles で管理する&lt;/h2&gt;
+&lt;p&gt;僕は zshrc とかの の管理は dotfiles で行っていて、ファイルの構成は次のようになっている。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;txt&quot; data-index=&quot;1&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;dotfiles/zsh/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ├ zshrc.zsh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ├ zprofile.zsh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ├ plugin.toml&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  ├ defe/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  │ ├ alias.zsh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  │ ├ completion.zsh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  │ └ env-init.zsh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  └ sync/&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    ├ alias.zsh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    ├ option.zsh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    └ prompt.zsh&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;zshrc.zsh には&lt;code&gt;eval &quot;$(sheldon source)&quot;&lt;/code&gt;の 1 行しか書いてない。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;plugins.toml&lt;/code&gt;は次のようになっている。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;toml&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;shell&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;zsh&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;zsh-defer&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;romkatv/zsh-defer&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;source&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;templates&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;defer&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = { &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;zsh-defer source &amp;quot;{{ file }}&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = true }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;compinit&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;autoload -Uz compinit &amp;amp;&amp;amp; zsh-defer compinit&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;colors&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;autoload -Uz colors &amp;amp;&amp;amp; zsh-defer colors&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;zsh-autosuggestions&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;zsh-users/zsh-autosuggestions&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;defer&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;zsh-syntax-highlighting&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;zsh-users/zsh-syntax-highlighting&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;defer&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;dotfiles-sync&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;~/dotfiles/zsh/sync&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;*.zsh&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;source&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;dotfiles-defer&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;~/dotfiles/zsh/defer&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;*.zsh&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;defer&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;少し説明すると、&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apply = [&apos;defer&apos;]&lt;/code&gt; を指定したのは遅延読み込み、&lt;code&gt;apply = [&apos;source&apos;]&lt;/code&gt;を指定したものは zsh 起動時に読み込まれる。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;defer&lt;/code&gt;は&lt;code&gt;[template]&lt;/code&gt;によって定義されているもので、プラグイン&lt;code&gt;zsh-defer&lt;/code&gt;を利用していることがわかる。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;toml&quot; data-index=&quot;3&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;templates&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;defer&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = { &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;zsh-defer source &amp;quot;{{ file }}&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; = true }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;自分が書いてる設定ファイルは&lt;code&gt;[plugin-dotfiles-sync]&lt;/code&gt;と&lt;code&gt;[plugin-dotfiles-defer]&lt;/code&gt;で読み込んでいる。&lt;br&gt;
+&lt;code&gt;sync&lt;/code&gt;の方には起動に読み込んでおく必要があるもをおいて、それ以外は&lt;code&gt;defer&lt;/code&gt;って感じにしてる。&lt;code&gt;option.zsh&lt;/code&gt;は&lt;code&gt;defer&lt;/code&gt;にしたかったのだけど、一部オプションは遅延読み込みが上手くいかないっぽい。だからと言って&lt;code&gt;alias.zsh&lt;/code&gt;みたいに分離するのも面倒だったので全部&lt;code&gt;sync&lt;/code&gt;にしている。&lt;/p&gt;
+&lt;p&gt;あと、&lt;code&gt;env-init.zsh&lt;/code&gt;には&lt;code&gt;pyenv&lt;/code&gt;と&lt;code&gt;rbenv&lt;/code&gt;の init を行っている。最適化をしてない場合、zsh 起動時間で&lt;code&gt;○○env&lt;/code&gt;の init は大きな時間を占めていると思う(もちろん僕もその 1 人であった)。&lt;br&gt;
+&lt;code&gt;defer&lt;/code&gt;を指定するだけでこれが解消されるのは非常に手軽で嬉しい。&lt;/p&gt;
+&lt;h2 id=&quot;速度&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E9%80%9F%E5%BA%A6&quot; aria-label=&quot;速度 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;速度&lt;/h2&gt;
+&lt;p&gt;手軽に次のコマンドで測定してみた。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;&quot; data-index=&quot;4&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;$ time ( zsh -i -c exit )&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;zplug&lt;/code&gt;の時の速度を測りたかったのだけど「zplug コマンドが見つからない」エラーが出て、ちゃんと計測できなかったので、&lt;a href=&quot;https://qiita.com/vintersnow/items/7343b9bf60ea468a4180#%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB&quot;&gt;ここの方法&lt;/a&gt;を参考にプロファイルをとってみた。その結果、&lt;code&gt;zplug&lt;/code&gt;と名前のついた処理についてだけで 800ms を超える時間がかかっていた(2018 年 macbook pro)。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sheldon&lt;/code&gt;に乗り換えて、10 数回ほど計測した結果、2018 年 macbook pro では 50ms ほど、2021 年 macbook pro では 40ms ほどであった。&lt;/p&gt;
+&lt;p&gt;素晴らしい。&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%82%E8%80%83&quot; aria-label=&quot;参考 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://ktrysmt.github.io/blog/migrate-zinit-to-sheldon/&quot;&gt;zinit が不安なので sheldon へ移行したら zsh の起動が 50ms と更に速くなった&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://sheldon.cli.rs/Introduction.html&quot;&gt;sheldon docs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/rossmacarthur/sheldon&quot;&gt;rossmacarthur/sheldon (github)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://qiita.com/vintersnow/items/7343b9bf60ea468a4180#%25E3%2583%2597%25&quot;&gt;zsh の起動が遅いのでなんとかしたい&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .default-dark {
+    background-color: #1E1E1E;
+    color: #D4D4D4;
+  }
+  .default-dark .mtk1 { color: #D4D4D4; }
+  .default-dark .mtk4 { color: #569CD6; }
+  .default-dark .mtk8 { color: #CE9178; }
+  .default-dark .mtk12 { color: #9CDCFE; }
+  .default-dark .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
+  }
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[[Vim] latexで保存時に句読点をカンマ・ピリオドに修正する]]></title><description><![CDATA[定期的に置換を実行するのが面倒だったので自動化した。 方法 次のスクリプトを.vimrcに追記すれば良い。 説明 autocmd BufWritePre、つまりバッファを保存する直前に置換を実行(FixPunctuation()を呼び出し)している。 FixPunctuation…]]></description><link>https://ryota2357.com/blog/2022/vim-latex-fix-punctuation/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/vim-latex-fix-punctuation/</guid><content:encoded>&lt;p&gt;定期的に置換を実行するのが面倒だったので自動化した。&lt;/p&gt;
 &lt;h2 id=&quot;方法&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%96%B9%E6%B3%95&quot; aria-label=&quot;方法 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;方法&lt;/h2&gt;
 &lt;p&gt;次のスクリプトを&lt;code&gt;.vimrc&lt;/code&gt;に追記すれば良い。&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;vim&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;autocmd&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;BufWritePre&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;*.tex&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; :&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;FixPunctuation&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
