@@ -1,4 +1,120 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 06 Jul 2022 14:15:53 GMT</lastBuildDate><item><title><![CDATA[neovim(vim)とskimでsynctexできるようにするプラグイン作った]]></title><description><![CDATA[vimtex 使えば synctex できるのだけど、僕は vimtex を使いたくないので自作した。 vim と neovim の両方対応。 両方とも最小構成で動くことを確認済み。 https://github.com/ryota2357/vim-skim-synctex…]]></description><link>https://ryota2357.com/blog/2022/dev-vim-skim-synctex/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/dev-vim-skim-synctex/</guid><content:encoded>&lt;p&gt;vimtex 使えば synctex できるのだけど、僕は vimtex を使いたくないので自作した。&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 09 Jul 2022 11:42:08 GMT</lastBuildDate><item><title><![CDATA[lexima.vimとpum.vimと<CR>]]></title><description><![CDATA[lexima.vim と pum.vim での<CR>の挙動制御について lexima.vim は内部でマッピング(inoremap)を生成する。そのため pum.vim で補完の確定を<CR…]]></description><link>https://ryota2357.com/blog/2022/lexima-pum-cr/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/lexima-pum-cr/</guid><content:encoded>&lt;p&gt;lexima.vim と pum.vim での&amp;#x3C;CR&gt;の挙動制御について&lt;/p&gt;
+&lt;p&gt;lexima.vim は内部でマッピング(&lt;code&gt;inoremap&lt;/code&gt;)を生成する。そのため pum.vim で補完の確定を&amp;#x3C;CR&gt;で行っている場合、このマッピングが衝突してしまい意図しない挙動が起きてしまう。&lt;/p&gt;
+&lt;p&gt;このことについて先日、lexima.vim でオプションを設定することで解決できるようにする PR を作成した。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/cohama/lexima.vim/pull/13&quot;&gt;https://github.com/cohama/lexima.vim/pull/13&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;作者の cohama さんからの返信は「他のプラグインに依存する機能をつけたくない」とのことで、マージはされなかった。各自&amp;#x3C;CR&gt;を lexima.vim にも対応するようにマッピングしてくださいとのこと。&lt;/p&gt;
+&lt;h2 id=&quot;leximavim-対応の-pummapconfirmマッピング&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#leximavim-%E5%AF%BE%E5%BF%9C%E3%81%AE-pummapconfirm%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0&quot; aria-label=&quot;leximavim 対応の pummapconfirmマッピング permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;lexima.vim 対応の pum#map#confirm()マッピング&lt;/h2&gt;
+&lt;p&gt;僕のマッピングは次の通り。これをベースに自分にあったマッピングにするといいと思う。&lt;br&gt;
+ただし、&lt;code&gt;lexima#expand(&apos;&amp;#x3C;CR&gt;&apos;)&lt;/code&gt; では意図するものにはならないことに注意である。&lt;code&gt;lexima#string#to_mappable(&apos;&amp;#x3C;CR&gt;&apos;)&lt;/code&gt;を通す必要がある。&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;vim&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;inoremap &amp;lt;expr&amp;gt;&amp;lt;silent&amp;gt; &amp;lt;CR&amp;gt; pum#visible() ? pum#map#confirm() : lexima#expand(%s, &amp;#39;i&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;              &lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;lexima#string#to_mappable&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;lt;CR&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;              &lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;\ &lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;注意点&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%B3%A8%E6%84%8F%E7%82%B9&quot; aria-label=&quot;注意点 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;注意点&lt;/h2&gt;
+&lt;p&gt;前提として lexima.vim は読み込まれた時にデフォルトのルールを設定する。この時に&amp;#x3C;CR&gt;のマッピングが生成されるので上記のマッピングは必ず lexima.vim が読み込まれた後に設定する必要がある。&lt;br&gt;
+(もしくは&lt;code&gt;let g:lexima_no_default_rules = v:false&lt;/code&gt;や&lt;code&gt;call lexima#clear_rules()&lt;/code&gt;を用いて lexima.vim のルール設定の制御を行った上で、設定する必要がある。)&lt;/p&gt;
+&lt;p&gt;dein.vim + toml を利用している場合マッピングを&lt;code&gt;hook_add&lt;/code&gt;に書くことが多いかもしれないが、今回の場合は&lt;code&gt;hook_source&lt;/code&gt;の最後に書く必要があるということである。&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .default-dark {
+    background-color: #1E1E1E;
+    color: #D4D4D4;
+  }
+  .default-dark .mtk11 { color: #DCDCAA; }
+  .default-dark .mtk1 { color: #D4D4D4; }
+  .default-dark .mtk8 { color: #CE9178; }
+  .default-dark .mtk6 { color: #D7BA7D; }
+  .default-dark .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
+  }
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[neovim(vim)とskimでsynctexできるようにするプラグイン作った]]></title><description><![CDATA[vimtex 使えば synctex できるのだけど、僕は vimtex を使いたくないので自作した。 vim と neovim の両方対応。 両方とも最小構成で動くことを確認済み。 https://github.com/ryota2357/vim-skim-synctex…]]></description><link>https://ryota2357.com/blog/2022/dev-vim-skim-synctex/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/dev-vim-skim-synctex/</guid><content:encoded>&lt;p&gt;vimtex 使えば synctex できるのだけど、僕は vimtex を使いたくないので自作した。&lt;br&gt;
 vim と neovim の両方対応&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/ryota2357/vim-skim-synctex&quot;&gt;https://github.com/ryota2357/vim-skim-synctex&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;動機&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8B%95%E6%A9%9F&quot; aria-label=&quot;動機 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;動機&lt;/h2&gt;
@@ -1027,9 +1143,9 @@ Homebrew とかで sheldon 入れて、&lt;code&gt;sheldon init&lt;/code&gt;を�
     background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
-&lt;/style&gt;</content:encoded></item><item><title><![CDATA[[NeoVim] python,rubyのglobal変更されない問題はREADME読んでないだけだった件]]></title><description><![CDATA[NeoVim の:checkhealthで python, ruby の global 切り替わらない問題の話。 反省 新しい Macbook を買って NeoVim 環境を再構築した。 その時 python と ruby の設定に pyenv, rbenv…]]></description><link>https://ryota2357.com/blog/2022/nvim-checkhealth-path/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/nvim-checkhealth-path/</guid><content:encoded>&lt;p&gt;NeoVim の&lt;code&gt;:checkhealth&lt;/code&gt;で python, ruby の global 切り替わらない問題の話。&lt;/p&gt;
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[[Neovim] python,rubyのglobal変更されない問題はREADME読んでないだけだった件]]></title><description><![CDATA[Neovim の:checkhealthで python, ruby の global 切り替わらない問題の話。 反省 新しい Macbook を買って Neovim 環境を再構築した。 その時 python と ruby の設定に pyenv, rbenv…]]></description><link>https://ryota2357.com/blog/2022/nvim-checkhealth-path/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/nvim-checkhealth-path/</guid><content:encoded>&lt;p&gt;Neovim の&lt;code&gt;:checkhealth&lt;/code&gt;で python, ruby の global 切り替わらない問題の話。&lt;/p&gt;
 &lt;h2 id=&quot;反省&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E5%8F%8D%E7%9C%81&quot; aria-label=&quot;反省 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;反省&lt;/h2&gt;
-&lt;p&gt;新しい Macbook を買って NeoVim 環境を再構築した。&lt;br&gt;
+&lt;p&gt;新しい Macbook を買って Neovim 環境を再構築した。&lt;br&gt;
 その時 python と ruby の設定に pyenv, rbenv を使ったけど、global が切り替わらない問題に遭遇した。&lt;/p&gt;
 &lt;p&gt;pyenv, rbenv の README の Installation を終わらせていないだけだった...&lt;/p&gt;
 &lt;p&gt;google で調べる前にまず公式の README なりリファレンスは読みましょう、ということ。&lt;/p&gt;
@@ -1047,7 +1163,7 @@ Homebrew とかで sheldon 入れて、&lt;code&gt;sheldon init&lt;/code&gt;を�
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;zsh&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# ~/.zshrc&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk11&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;$(pyenv init -)&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;をそれぞれ追記する。&lt;/p&gt;
-&lt;p&gt;最後に python のインストール、global と NeoVim プラグインのインストール&lt;/p&gt;
+&lt;p&gt;最後に python のインストール、global と Neovim プラグインのインストール&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;3&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# install できるバージョンの確認&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;pyenv install --list&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -1069,7 +1185,7 @@ Homebrew とかで sheldon 入れて、&lt;code&gt;sheldon init&lt;/code&gt;を�
 &lt;p&gt;続いて init を実行&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;5&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;rbenv init&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;指示が出るから、それに従う。&lt;/p&gt;
-&lt;p&gt;最後に ruby のインストール、global と NeoVim プラグインのインストール&lt;/p&gt;
+&lt;p&gt;最後に ruby のインストール、global と Neovim プラグインのインストール&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;sh&quot; data-index=&quot;6&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk3&quot;&gt;# install できるバージョンの確認&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;rbenv install --list&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;/span&gt;&lt;/span&gt;
