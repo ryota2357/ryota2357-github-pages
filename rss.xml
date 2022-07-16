@@ -1,4 +1,208 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Jul 2022 23:28:20 GMT</lastBuildDate><item><title><![CDATA[lexima.vimとpum.vimと<CR>]]></title><description><![CDATA[lexima.vim と pum.vim での<CR>の挙動制御について lexima.vim は内部でマッピング(inoremap)を生成する。そのため pum.vim で補完の確定を<CR…]]></description><link>https://ryota2357.com/blog/2022/lexima-pum-cr/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/lexima-pum-cr/</guid><content:encoded>&lt;p&gt;lexima.vim と pum.vim での&amp;#x3C;CR&gt;の挙動制御について&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[ryota2357 RSS Feed]]></title><description><![CDATA[namespace ryota2357;]]></description><link>https://ryota2357.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Jul 2022 01:16:47 GMT</lastBuildDate><item><title><![CDATA[ddu-ui-filerでアイコン表示するcolumn作った(ddu-column-icon_filename)]]></title><description><![CDATA[python 依存をなくすため、defx から ddu-ui-filer に乗り換えをした。 アイコン表示がないのは寂しいし、ファイルタイプを一目で確認できないのはひょっと不便なので作って見た。 defx-iconsを参考に作成している。 https://github.com…]]></description><link>https://ryota2357.com/blog/2022/dev-ddu-column-icon_filename/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/dev-ddu-column-icon_filename/</guid><content:encoded>&lt;p&gt;python 依存をなくすため、defx から ddu-ui-filer に乗り換えをした。&lt;/p&gt;
+&lt;p&gt;アイコン表示がないのは寂しいし、ファイルタイプを一目で確認できないのはひょっと不便なので作って見た。&lt;br&gt;
+&lt;a href=&quot;https://github.com/kristijanhusak/defx-icons&quot;&gt;defx-icons&lt;/a&gt;を参考に作成している。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ryota2357/ddu-column-icon_filename&quot;&gt;https://github.com/ryota2357/ddu-column-icon_filename&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;columparam-について&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#columparam-%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&quot; aria-label=&quot;columparam について permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;columParam について&lt;/h2&gt;
+&lt;p&gt;デファクトスタンダード(?)colum である&lt;a href=&quot;https://github.com/Shougo/ddu-column-filename&quot;&gt;ddu-column-filename&lt;/a&gt;とは異なる Param を用意した。その中でも filename にはなかった空白を制御する 2 つの Param について。&lt;/p&gt;
+&lt;h3 id=&quot;span&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#span&quot; aria-label=&quot;span permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;span&lt;/h3&gt;
+&lt;p&gt;filename ではアイコンとファイル名の間のサイズを変更することができず、空白 1 個というようになっている。&lt;/p&gt;
+&lt;p&gt;アイコンを表示する場合、これをコントロールする必要がある。これはアイコン表示幅が使用しているフォントによって異なることがあるから。(strwidth()では 1 幅になるけど表示は 2 幅になるとかがある)&lt;/p&gt;
+&lt;p&gt;次の画像は空白を 1 個つけているけど空白があるようには見えない。アイコン表示幅が 2 であるために空白が消えているように見えてしまう。(フォントは Cica を使用)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 362px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b79c3fb79a4fc3efa72c10bce55eb9fb/10600/param-span1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 104.43037974683544%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAABYlAAAWJQFJUiTwAAADX0lEQVQ4y5VUy24cVRDtDwDs8cRxUAQIk4zn3e/H9Hu6e949Y8977MEmtgwEsEOEkLJESKwQgjVikS0rNvwB4i/4A37ioCpnjCNl5GRRqtvd954+VefUFe6/9yHizgiqVUfNb0E1Q5QlC3slFfmyxnFzfVsI797/AG7QgqxYaHSG8Opd/vCwICNXVDjeBFTY2MhA9AeoTS5R1EKUqgZ0O4JmhRyi6lyDUb4thMxmBs7wc6Tf/wFrfAnHjdA7WMJ0EoSNAUTVZbavzXA+m+KHn39FMZhCdZrw4j5Mrw3JCKFYEUQ9gKj7UMw6ipKNkuygJN/ML4fw6dkJnv/5N1o//oXO8gnmy3MMJo+Qjo8xO36Mg9kpWv0FNDtBQay9AHL+B1dczmXF5RByewUknSGkZA41nqKquqy0YgYwnAQl0UJVcVCsmpB0HxXFRkm6eke5UDV4nS/rKFQMCBuZu9jdzcMcnOPo938xfPoT5osTjA/PMTk8gxN2YLkN9A4O0eiMkHRGGM4eYbw4RXcw52dZ96/dIGTv3GNlS1qIcHYBLUihWwF0O2ZBSGU6UCVmonmViVlFR7FqXLtgJZqwdeceP+hWiG+ffQfHb8KtdzE9Oodei1jtdn+GVjrlSNojOEEbD/ZEBlgxW9lK2MruoChaKEs1tHoTaLU6s5B1D5pV53zF0oOouajINWZ+E+im8YV33nobzvQJZs//QXLyDP39KeL2iPtGwjzIi7x5NTWr9brpETYzWch+H42LX2D3TmDZdVhek5lSj6hXdPB1R1HYyGzDtCN8+cXXDEYXxHhxxtYx7BidF0rG7SGi1gGcsM3gaydlc2ub/TVdfsYiUJlULjFUzYCD1vRN0q5U/2ivur5kYkibzx5/w0B0KIhT1PwmwqSPmtdEvbkPP07hRT34UQ+238LDvLSGYWab78KPT7+CYUd8fZE9iBVFkPTZ1PQTP+7xD4jAurKFTPYuKrKN/fER94w2U8+IVX+4RHewQKc/557u5ioMtAJ7tcrUQ83H+PgpTLfBdyGVRUyoTAKmkaNW7OaqL92Nry45uwNJMXE5yiGsJ2ilc9h+k1Ulpu10xqaXdI9VpipuUXkHimrit4v3kXabSMefoJ1OsT85Rjo8YgsZTsyM6R2P3RpBCPA/srW62KuXcLgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spanの説明&quot;
+        title=&quot;spanの説明&quot;
+        src=&quot;/static/b79c3fb79a4fc3efa72c10bce55eb9fb/10600/param-span1.png&quot;
+        srcset=&quot;/static/b79c3fb79a4fc3efa72c10bce55eb9fb/c26ae/param-span1.png 158w,
+/static/b79c3fb79a4fc3efa72c10bce55eb9fb/6bdcf/param-span1.png 315w,
+/static/b79c3fb79a4fc3efa72c10bce55eb9fb/10600/param-span1.png 362w&quot;
+        sizes=&quot;(max-width: 362px) 100vw, 362px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;例えば hack nerd font mono とかでは次のようにちゃんと空白の存在を確認できる。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 466px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/20ae08531670d3455d9d3fabff6dead7/fc1a1/param-sapn-font.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.67088607594937%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAABYlAAAWJQFJUiTwAAACxUlEQVQ4y5VU2W7TUBT0XwAS6t7Ua5w4iR0v8RI7cWLHWbunKYhKCJ6AF34Bic/gAcFXDjonaZuWtpSH0bEta+6cM3OuYNohWu0cbpDCC/uoN0NIWh1yuQFZa0DSbutzIEiqgVrDg+m04ccDaFUHJdlgHCg1iGqd63MhvNwowT76AqURQVQMhJ0hwk6BIBnAcuP/ImPCNBvBz+cQdRd6zUWUTlC32zCsEOWah5Jcg6I3IZUtSGXzYWi3EH7++o2P336gVPEwnC0wPnmHtDhFPl2gmF2iPzqHHWaQKw6UqgfV8G7rCuoahLP5G8SjBeR6xMqcsA/L68CPC9h+ioaToFxrQTNc6PUWK1WrDpSKDaXi8Hf6JnMHFoQXrzYhaiaC99+huz3koxNWmo/P0O6OULMCnmunP4Uf5yimcwxnF+gVx0j6Ux5TSa5CVFcz3NqV+DTL70Gt2Kg3Iyaw/S7/bLox7FYXhhlwEhp2BFm3oFaa0Kr2TQqoEoSN7QOIUhndbAq5bHJsuvkhkt6ESeg56o74kLg3gRf1sS9VmeR+tJhwa0+BPf4Aqeqh6SUc8poVMkjFdWDpsHUl67ijkAids6/Qmh1EyYDnQqTUGs1mX6xgb4VrZfdJ1iFs7oiIkwyqbkKpNG9aVHSLa5AUcIIUQTxA0+s8SnSH0ItyJiATHD+FG/S4ZTLG8hI2xnITmE7MStfX8W/CXQmdbIay4XDSaZ/9ds6VyNvpmA2iyFCMvChjMx5VSC4TASnUjKXDpJAUkcJseMq30HVkKJdPElIOF1efUW347DJFI0wKFJM5Y3S44Flu72s3xjx1AwmbOxL6aQe6YcMLMzaAFLaijLNH7zQOihDVdYcfJHy9JeHT4QEss4FsfMFrNT66xOT4LY7Or3gEdOnSO836qXaXM9wRoaxCSwGmTVluzHKtaB1JHYFi9a9L9w/2Q2+oQfInkAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;spanの説明2&quot;
+        title=&quot;spanの説明2&quot;
+        src=&quot;/static/20ae08531670d3455d9d3fabff6dead7/fc1a1/param-sapn-font.png&quot;
+        srcset=&quot;/static/20ae08531670d3455d9d3fabff6dead7/c26ae/param-sapn-font.png 158w,
+/static/20ae08531670d3455d9d3fabff6dead7/6bdcf/param-sapn-font.png 315w,
+/static/20ae08531670d3455d9d3fabff6dead7/fc1a1/param-sapn-font.png 466w&quot;
+        sizes=&quot;(max-width: 466px) 100vw, 466px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;これに対処するため&lt;code&gt;span&lt;/code&gt;という Param を作った。&lt;br&gt;
+&lt;code&gt;iconWidth&lt;/code&gt;という名前の Param で空白を追加することでコントロールしてもよかったのだが、今変更したいものはアイコンの幅ではなく、「アイコンとファイル名の間隔」なのではと思い&lt;code&gt;span&lt;/code&gt;という名前で「アイコンとファイル名の間隔」を指定することにした。&lt;/p&gt;
+&lt;h3 id=&quot;padding&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#padding&quot; aria-label=&quot;padding permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;padding&lt;/h3&gt;
+&lt;p&gt;見た方がわかりやすいと思う。&lt;/p&gt;
+&lt;p&gt;先ほどの&lt;code&gt;span&lt;/code&gt;の説明では&lt;code&gt;padding&lt;/code&gt;は 1(default)が指定されていた。例えばこれを 0 にすると次のようになる。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 362px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e1bd68a66f1ee4b7362b8c4378528b5b/10600/param-padding0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 104.43037974683544%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAABYlAAAWJQFJUiTwAAADPElEQVQ4y5VUTXPTVhTVFhZMgQw2KU2GmMRfseQPfUuWZEmxZVt2Yjt2HBfngwm00zTTMDBZsodhxx5muupPYMEPYce6q/6E07k3JA1lMMnizn3SvHfeufec+4R7C0sIW5uoaB4Mpw5Z95Av6kjnK8isyuf5siEkkvMwLR+y5mCtNYDlRsgWFCxnS1jJla8MKiRTIozNI+TlGvKiCsXwUdE9ZipVrC+YXiaE+2oT/ZfvofV/h2X7aG9MoFkhvLUupIrNTK/EcGdnB6/evMWyZMMNu9CdCEXVQ1n3ISkuJMVBWashVzSRL1nIly7mr0M4eXqEDx//gbH+CyYPD9Ad7iEeTDGa/oqN0T4anTFkM0RWMj4DWf+Bl23Oq2X7PIR0OoPuw0NIXp9LpP6VNReqFSIv6RDLFnKihqLioFA22QH0j3JWVHmdWVWQLajIFBQI169dg9J9gslff6N3/Bpb4x0Mtg+wuf0IlteEbq+hvbGNtWYfYbOP3mgPg/E+Wt0t/i4pzhduEG7dvgNJD+EODyG7MRTdhWIGzJZUpgMiMZO000zMCgpyonrugouiCTd+uA3DDvHs5AUspw671sJwcsD2IbWjzgiNeMgRRn326YO0xIfPmF30qnBzLglJrqLeGkA2asyipFQh6zXOpyyrkGQbhZLBzC8C/d/4QsrsYvLnJ4TTE3TWhwiiPveNhHmQkXgzAVCcrWdNj5BMFRD98QZGewrdrEGv1pkp9Yh6RQfPxvAyoygsLi7h6OgZdJMehwYG40f8UKhmgOZnJYOoB7+xAcuLGHz2LM8vYLz7G2TD5zKpXGJY0VwOWpNARflU9VRanF0yPV9PDk+g2SEfcoOYnzEv7MCo1lGrr8MJYlT9Nhy/DdNpYDlT/DbDH3+6j73Hx8yiWmuxPYgVhRt22NR0iRO0+QLaN6tsYe7OPPqjXaimz5upZ8Sq0/sZre4Yzc4W93RppcBAZ2DfLDlxdwGj/ec8u4rpc1nEhMokYBo5asXSinipV1xIJBI4HubgegEa8RZMp86qEtMoHmG1aKCoVFllUv67Ks8nE3h3nELcrCMe7CKKh1jfnCLuTdhCqhUwY/rHYzdDEAL8F4P5upyI2F1QAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;paddingの説明&quot;
+        title=&quot;paddingの説明&quot;
+        src=&quot;/static/e1bd68a66f1ee4b7362b8c4378528b5b/10600/param-padding0.png&quot;
+        srcset=&quot;/static/e1bd68a66f1ee4b7362b8c4378528b5b/c26ae/param-padding0.png 158w,
+/static/e1bd68a66f1ee4b7362b8c4378528b5b/6bdcf/param-padding0.png 315w,
+/static/e1bd68a66f1ee4b7362b8c4378528b5b/10600/param-padding0.png 362w&quot;
+        sizes=&quot;(max-width: 362px) 100vw, 362px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;カーソルとアイコンが重なっている。これを修正するため左端にスペースを入れるのが&lt;code&gt;padding&lt;/code&gt;である。&lt;/p&gt;
+&lt;h2 id=&quot;アイコン選びについて&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E9%81%B8%E3%81%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&quot; aria-label=&quot;アイコン選びについて permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;アイコン選びについて&lt;/h2&gt;
+&lt;p&gt;defx-icons とは異なるアイコンを使用しているものがある。&lt;/p&gt;
+&lt;p&gt;僕の使用しているフォント Cica では一部アイコンフォントが表示されない、または別のものが表示されることがある。そのようなアイコンは異なるアイコンを当てている。&lt;br&gt;
+そのほかにも僕の好みが反映されていたり、複数のフォントアイコンの選択肢がある場合は Devicons 由来のものを選んだりした。&lt;/p&gt;
+&lt;p&gt;対応しているファイルタイプは&lt;a href=&quot;https://github.com/ryota2357/ddu-column-icon_filename/blob/main/denops/%40ddu-columns/icon_filename.ts&quot;&gt;ここの下の方&lt;/a&gt;に定義してある。主要なものは対応するようにしたつもり。対応していないものに気がついた時は随時追加していく。&lt;/p&gt;
+&lt;h2 id=&quot;最後に&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%9C%80%E5%BE%8C%E3%81%AB&quot; aria-label=&quot;最後に permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;最後に&lt;/h2&gt;
+&lt;p&gt;初めて ddu プラグインを作成した。&lt;/p&gt;
+&lt;p&gt;typescript しか書いてない。とても簡単に作れた。ddu すごいね。&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+&lt;/style&gt;</content:encoded></item><item><title><![CDATA[lexima.vimとpum.vimと<CR>]]></title><description><![CDATA[lexima.vim と pum.vim での<CR>の挙動制御について lexima.vim は内部でマッピング(inoremap)を生成する。そのため pum.vim で補完の確定を<CR…]]></description><link>https://ryota2357.com/blog/2022/lexima-pum-cr/</link><guid isPermaLink="false">https://ryota2357.com/blog/2022/lexima-pum-cr/</guid><content:encoded>&lt;p&gt;lexima.vim と pum.vim での&amp;#x3C;CR&gt;の挙動制御について&lt;/p&gt;
 &lt;p&gt;lexima.vim は内部でマッピング(&lt;code&gt;inoremap&lt;/code&gt;)を生成する。そのため pum.vim で補完の確定を&amp;#x3C;CR&gt;で行っている場合、このマッピングが衝突してしまい意図しない挙動が起きてしまう。&lt;/p&gt;
 &lt;p&gt;このことについて先日、lexima.vim でオプションを設定することで解決できるようにする PR を作成した。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/cohama/lexima.vim/pull/134&quot;&gt;https://github.com/cohama/lexima.vim/pull/134&lt;/a&gt;&lt;/p&gt;
